@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial;
+    
 }
 
 body {
@@ -11,18 +12,24 @@ body {
 }
 
 /* HEADER */
-header {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    text-align: center;
-    padding: 35px;
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.header p{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+   
 }
 
-header input {
-    margin-top: 15px;
-    padding: 12px;
-    width: 60%;
-    border-radius: 8px;
-    border: none;
+ .header input {
+    display: flex;
+    text-align: center;
+   
 }
 
 header button {
@@ -32,7 +39,7 @@ header button {
     cursor: pointer;
     border-radius: 8px;
     background: #22c55e;
-    color: white;
+    color: rgb(246, 238, 238);
 }
 
 /* GRID */
@@ -49,7 +56,7 @@ header button {
     border-radius: 14px;
     cursor: pointer;
     transition: 0.3s;
-    color: white;
+    color: rgb(198, 142, 142);
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
@@ -57,7 +64,7 @@ header button {
     transform: translateY(-8px);
 }
 
-/* COLORS قوية */
+
 .frontend { background: #4f46e5; }
 .backend { background: #16a34a; }
 .fullstack { background: #f97316; }
@@ -70,14 +77,17 @@ header button {
 /* STATUS */
 .hired {
     color: #22c55e;
+    border-radius: 20px;
     font-weight: bold;
 }
 
 /* FOOTER */
 footer {
-    text-align: center;
+    text-align:center;
     padding: 20px;
+    align-items: end;
     background: #020617;
+    
 }
 
 /* POPUP */
@@ -94,7 +104,7 @@ footer {
 }
 
 .popup-content {
-    background: white;
+    background: rgb(98, 184, 166);
     color: black;
     padding: 20px;
     border-radius: 12px;
