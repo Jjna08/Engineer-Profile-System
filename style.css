@@ -9,6 +9,14 @@
 body {
     background: #0f172a;
     color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex: 1;
+
 }
 
 /* HEADER */
@@ -81,6 +89,20 @@ header button {
     font-weight: bold;
 }
 
+.not-found{
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 40px;
+    font-size: 22px;
+    color: #555;
+
+}
+
+.not-found h2{
+    color:crimson;
+    margin-bottom: 10px;
+}
+
 /* FOOTER */
 footer {
     text-align:center;
@@ -101,6 +123,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .popup-content {
@@ -109,6 +132,8 @@ footer {
     padding: 20px;
     border-radius: 12px;
     width: 320px;
+    cursor: pointer;
+    position: relative;
 }
 
 .hidden {

@@ -18,6 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("closePopup").onclick = closePopup;
 
+    document.getElementById("popup").addEventListener("click",closePopup);
+
+    document.getElementById("popupDetails").addEventListener("click",(e) => {
+        e.stopPropagation();
+
+    document.querySelector(".popup").addEventListener("click",closePopup);
+    });
+
     document.getElementById("searchInput").addEventListener("input", (e) => {
         const value = e.target.value.toLowerCase();
 
@@ -29,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-/* ---------------- INIT ---------------- */
+
 function initData() {
     const data = localStorage.getItem("engineers");
 
@@ -50,12 +58,12 @@ function initData() {
     }
 }
 
-/* ---------------- GET ---------------- */
+
 function getEngineers() {
     return JSON.parse(localStorage.getItem("engineers")) || engineersData;
 }
 
-/* ---------------- RANDOM ---------------- */
+
 function getRandom8(data) {
     return [...data]
         .sort(() => Math.random() - 0.5)
@@ -63,11 +71,20 @@ function getRandom8(data) {
         .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-/* ---------------- DISPLAY ---------------- */
+
 function displayEngineers(list) {
     const container = document.getElementById("engineersContainer");
     container.innerHTML = "";
-
+   
+    if (list.length===0){
+        container.innerHTML=`
+        <div class="not-found">
+        <h2>Not foun</h2>
+        <p>No engineer matches your search.</p>
+        </div>
+        `;
+        return;
+    }
     list.forEach(e => {
         const card = document.createElement("div");
 
@@ -97,7 +114,7 @@ function displayEngineers(list) {
     });
 }
 
-/* ---------------- POPUP ---------------- */
+
 function openPopup(id) {
     const engineers = getEngineers();
     const engineer = engineers.find(e => e.id === id);
@@ -117,7 +134,7 @@ function openPopup(id) {
     document.getElementById("popup").classList.remove("hidden");
 }
 
-/* ---------------- TOGGLE HIRE ---------------- */
+
 function toggleHire(id) {
     let engineers = getEngineers();
 
@@ -135,18 +152,18 @@ function toggleHire(id) {
     closePopup();
 }
 
-/* ---------------- CLOSE POPUP ---------------- */
+
 function closePopup() {
     document.getElementById("popup").classList.add("hidden");
 }
 
-/* ---------------- CLEAR SEARCH ---------------- */
+
 function clearSearch() {
     document.getElementById("searchInput").value = "";
     refresh();
 }
 
-/* ---------------- REFRESH ---------------- */
+
 function refresh() {
     displayEngineers(getRandom8(getEngineers()));
 }
