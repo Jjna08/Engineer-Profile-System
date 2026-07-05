@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("popupDetails").addEventListener("click",(e) => {
         e.stopPropagation();
 
-    document.querySelector(".popup").addEventListener("click",closePopup);
     });
 
     document.getElementById("searchInput").addEventListener("input", (e) => {
